@@ -45,10 +45,10 @@ jadwalMatkulController.create = async (req,res) => {
 }
 
 jadwalMatkulController.getAll = async (req,res) => {
-    const getJadwalMatkul = await jadwalMatkul.findAll({
+    const getJadwalMatkul = await MataKuliah.findAll({
         include: [
             {
-                model: MataKuliah
+                model: jadwalMatkul
             }
         ]
     });
@@ -59,10 +59,10 @@ jadwalMatkulController.getAll = async (req,res) => {
 
 jadwalMatkulController.getById = async (req,res) => {
     const {id} = req.params
-    const getDosenMatkul = await jadwalMatkul.findOne({
+    const getDosenMatkul = await MataKuliah.findOne({
         include: [
             {
-                model: MataKuliah
+                model: jadwalMatkul
             }
         ],
         where : {
